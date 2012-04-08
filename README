@@ -36,3 +36,47 @@ BUILD NOTES:
 ** PSUtil
 ** PyWin32
 * You should use the console.spec file provided (though you need to update the paths in it!), or generate your own and make sure you add "hookspath=['C:\\Source\\NS2Update\\hooks']" to the Analysis constructor
+
+WINDOWS BUILD NOTES
+If you wish to build Ns2Update on Windows, you have to do the following steps:
+
+64 Bit Windows:
+* install python 64 bit to c:\python27
+* install pip (http://pypi.python.org/pypi/pip) (Note from Version 1.1 (2012-02-16): Pip uses a special Installation strategy for 64 bit Python)
+* install Dependencies:
+** run command: c:\python27\Scripts\pip install beautifulsoup4
+** run command: c:\python27\Scripts\pip install cherrypy
+** run command: c:\python27\Scripts\pip install psutil
+** download PyWin32 from http://sourceforge.net/projects/pywin32/
+** install PYWin32 using the installer.
+* install PyInstaller (http://www.pyinstaller.org/)
+** Download the zip file
+** unpack the pyinstaller-1.5.1 folder to the NS2Update folder. You should not have a pyinstaller-1.5.1 subfolder in your NS2Update folder.
+** run command: python pyinstaller-1.5.1\Configure.py
+* create a file called env.cmd in your NS2Update Folder
+** set the NS2 Server deployment path content: set ns2updatedeploypath=c:\any\path\to\your\ns2server
+* Update the console.spec with your environment path
+* Apply the diff mentioned above in the BUILD NOTES. (Not tested with pip. perhaps you have to use the manual install method to do that correctly)
+
+you are now ready to use the 64 bit environment.
+* use build.cmd to build the dist/ns2update.exe
+* use deploy.cmd to deploy the previously built exe file to a configured destination
+* use build and deploy.cmd to do both :)
+
+32 Bit Windows AND 64 Bit Windows Environment in one:
+* Do all Steps mentioned in the 64 Bit Windows Section
+* Install python 32 bit to c:\python27-x86
+* install pip 32 Bit (http://pypi.python.org/pypi/pip) (Installer)
+** run command: c:\python27-x86\Scripts\pip install beautifulsoup4
+** run command: c:\python27-x86\Scripts\pip install cherrypy
+** run command: c:\python27-x86\Scripts\pip install psutil
+** download PyWin32 32 bit version from http://sourceforge.net/projects/pywin32/
+** install PYWin32 32 bit version using the installer.
+
+* make a copy of the already existing pyinstaller-1.5.1 folder from the 64 bit installation and name it pyinstaller-1.5.1-x86
+** run command: python27-x86/python.exe pyinstaller-1.5.1-x86/Configure.py
+
+
+you are now ready to use the 32 bit environment.
+* use build-x86.cmd to build the dist-x86/ns2update.exe
+* there is currently no x86 deploy script available.
