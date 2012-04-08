@@ -1,6 +1,6 @@
 if  not exist dist\ns2update.exe then goto error
  
-cmd /c env.cmd
+call env.cmd
 
 
 set h=%TIME:~0,2%
