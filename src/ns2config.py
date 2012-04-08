@@ -44,11 +44,7 @@ class NS2Config(dict):
 			,'file': 'server.xml'
 		}
 		
-		
-		
-		info("got cmd line %s and serverdir %s" % (cmdline, serverdir))
 		self.parseCmdLine(cmdline)
-		info("parsed cmd line %s" % self.config)
 		
 		configfilepath = {
 			os.path.join('.',self.config['file'])
