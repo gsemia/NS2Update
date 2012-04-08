@@ -54,7 +54,12 @@ If you wish to build Ns2Update on Windows, you have to do the following steps:
 ** unpack the pyinstaller-1.5.1 folder to the NS2Update folder. You should not have a pyinstaller-1.5.1 subfolder in your NS2Update folder.
 ** run command: python pyinstaller-1.5.1\Configure.py
 * create a file called env.cmd in your NS2Update Folder
-** set the NS2 Server deployment path content: set ns2updatedeploypath=c:\any\path\to\your\ns2server
+** and set the following content according to your environment: 
+
+	set python27_64="c:\python27\python.exe"
+
+	set ns2updatedeploypath=\\escher\d$\server\ns2
+
 * Update the console.spec with your environment path
 * Apply the diff mentioned above in the BUILD NOTES. (Not tested with pip. perhaps you have to use the manual install method to do that correctly)
 
@@ -75,6 +80,9 @@ you are now ready to use the 64 bit environment.
 
 * make a copy of the already existing pyinstaller-1.5.1 folder from the 64 bit installation and name it pyinstaller-1.5.1-x86
 ** run command: python27-x86/python.exe pyinstaller-1.5.1-x86/Configure.py
+* update the env.cmd file and add the following line:
+
+	set python27_32="c:\python27-x86\python.exe"
 
 
 you are now ready to use the 32 bit environment.

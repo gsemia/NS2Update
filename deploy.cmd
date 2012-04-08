@@ -1,4 +1,4 @@
-if  not exist dist\ns2update.exe then goto error
+if not exist dist\ns2update.exe then goto error
  
 call env.cmd
 
@@ -10,7 +10,9 @@ set t=%h%%m%%s%
 
 if not exist %ns2updatedeploypath% goto error2
 
+rem backup copy
 copy dist\ns2update.exe %ns2updatedeploypath%\ns2update%t%.exe
+rem final exe
 copy /y dist\ns2update.exe %ns2updatedeploypath%\ns2\ns2update.exe
 
 goto end
