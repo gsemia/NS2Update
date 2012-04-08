@@ -61,7 +61,7 @@ If you wish to build Ns2Update on Windows, you have to do the following steps:
 you are now ready to use the 64 bit environment.
 * use build.cmd to build the dist/ns2update.exe
 * use deploy.cmd to deploy the previously built exe file to a configured destination
-* use build and deploy.cmd to do both :)
+* use builddeploy.cmd to do both :)
 
 32 Bit Windows AND 64 Bit Windows Environment in one:
 * Do all Steps mentioned in the 64 Bit Windows Section
